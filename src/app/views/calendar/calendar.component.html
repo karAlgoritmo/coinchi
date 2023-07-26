@@ -1,1 +1,65 @@
-<p>calendar works!</p>
+<section data-bs-theme="light" class="bg-light min-vh-100">
+  <navbar-header></navbar-header>
+  <div class="pt-5 row mx-0 px-3 pb-2 justify-content-center bg-dark text-light bg-image"
+    style="background-image: url(https://i.pinimg.com/originals/9a/af/a9/9aafa9c67a39717982a2936c3fcc60c0.jpg);">
+    <div class="col-12 p-3">
+      <h1 class="fs-1">July - <label class="fw-bold">War Machines</label></h1>
+    </div>
+    <div class="col-3  p-3 d-flex flex-column align-items-center justify-content-center">
+      <span class="fs-1 mb-2"><mat-icon class="text-light mx-2">arrow_circle_up</mat-icon>60%</span>
+      <span>Score/today</span>
+    </div>
+    <div class="col-3  p-3 d-flex flex-column align-items-center justify-content-center">
+      <span class="fs-1 mb-2">6.7</span>
+      <span>Score/today</span>
+    </div>
+    <div class="col-3  p-3 d-flex flex-column align-items-center justify-content-center">
+      <span class="fs-1 mb-2"><mat-icon class="text-light mx-2">arrow_circle_down</mat-icon>45%</span>
+      <span>Progress</span>
+    </div>
+    <div class="col-3  p-3 d-flex flex-column align-items-center justify-content-center">
+      <span class="fs-1 mb-2">8.5</span>
+      <span>Score</span>
+    </div>
+  </div>
+  <mat-tab-group class="w-100" color="accent">
+    <!-- calendar -->
+    <mat-tab label="Calendar">
+      <div class="row mx-0 p-3 text-light">
+        <div class="col-8 row mx-0">
+          <div class="col-2 p-2" *ngFor="let date of calendar">
+            <div class="card alert-success">
+              <div class="card-header py-1 px-2">
+                <span>{{date.date | date}}</span>
+              </div>
+              <div class="card-body p-1 px-2 d-flex">
+                <h1 class="fs-3 mb-1 " *ngIf="!date.active"
+                  [ngClass]="{'text-danger': date.score<7,'text-success': date.score>8,'text-warning': date.score>=7 && date.score<=8}">
+                  {{date.score | number:'1.1-1'}}</h1>
+                <!-- emoji -->
+                <!-- <img src="../../../assets/img/{{date.score<7?'asustado':date.score>8?'cara-de-guino':'je'}}.png" alt="" height="30" class="px-3"> -->
+                <h1 class="fs-5 mb-1 " *ngIf="date.active">0.0</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="row mx-0" >
+            <div class="col-md-6 p-1" *ngFor="let module of modules">
+              <schedule-gadget [module]="module"></schedule-gadget>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Schedule">
+      <div class="col-12">
+        <!-- <schedule></schedule> -->
+      </div>
+    </mat-tab>
+    <mat-tab label="Analysis">
+      <!-- <linechart></linechart> -->
+    </mat-tab>
+  </mat-tab-group>
+
+</section>

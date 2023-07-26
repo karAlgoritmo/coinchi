@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+h1,h2,h3,h4,h5,h6,b,span,small,label,button,li,a{
+  font-family: 'agdasima' !important;
+}
+small{
+  font-size: 1rem !important;
+}
+h1,a{
+  font-size: 2rem !important;
+}
+span,li,b{
+  font-size: 1.3rem !important;
+}
+
+@font-face {
+  font-family: 'agdasima';
+  src: url('./assets/font/Agdasima-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.color-red-bar{
+  .mat-progress-bar-fill::after {
+    background-color: #c2185b !important;
+  }
+}
+.color-yellow-bar{
+  .mat-progress-bar-fill::after {
+    background-color: #cfdf43 !important;
+  }
+}
+.color-green-bar{
+  .mat-progress-bar-fill::after {
+    background-color: #18c265 !important;
+  }
+}
+.bg-image{
+  background-blend-mode: soft-light;
+  background-position: center;
+  background-size: cover;
+  background-color: #0000009c;
+}
