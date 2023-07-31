@@ -1,6 +1,6 @@
 <div class="card p-2 bg-image" [ngStyle]="{'background-image': 'url('+module.img+')'}" >
   <h5 class="card-title d-flex align-items-center text-white"><mat-icon>{{module.icon}}</mat-icon><span class="px-2">{{module.category}}</span></h5>
-  <h5 class="card-title fs-4  text-white">{{module.name}}</h5>
+  <h5 class="card-title fs-4  text-white text-truncate">{{module.name}}</h5>
   <mat-progress-bar mode="determinate"
   [ngClass]="{
     'color-red-bar': ((module.progress/module.objetive) * 100) <= 33,

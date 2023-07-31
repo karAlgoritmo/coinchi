@@ -41,5 +41,17 @@ span,li,b{
   background-blend-mode: soft-light;
   background-position: center;
   background-size: cover;
-  background-color: #0000009c;
+  background-color: #0000008f;
 }
+.fixed-top{
+  z-index: 900 !important;
+}
+.modal-backdrop {
+  z-index: 901 !important;
+}
+.modal {
+  z-index: 902 !important;
+}
+// .height-fit {
+//   height: fit-content;
+// }

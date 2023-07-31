@@ -28,3 +28,7 @@ export enum categories{
   Event='Event',
   Cinema='Cinema'
 }
+
+export interface OkrModuleOmit extends Omit<Okrmodule,'id'>{
+
+}
