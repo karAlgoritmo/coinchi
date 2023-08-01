@@ -2,6 +2,12 @@
 
 export interface Activities {
   videogame:number
+  gym:number,
+  course:number,
+  serie:number,
+  anime:number,
+  work:number,
+  book:number
 }
 
 export type Score={

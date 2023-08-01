@@ -4,6 +4,7 @@ import { Score, ScoreName, ScoresNum } from 'src/app/interfaces/activities';
 import { Date } from 'src/app/interfaces/date';
 import { Okrmodule, categories, icons } from 'src/app/interfaces/okrmodule';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { reduce } from 'rxjs';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -17,8 +18,6 @@ export class CalendarComponent implements OnInit {
   // date Form
   // form of projection
   public dateForm: any = new FormGroup({
-    id: new FormControl('', []),
-    date: new FormControl('', []),
     videogame: new FormControl('', []),
     course: new FormControl('', []),
     anime: new FormControl('', []),
@@ -31,7 +30,15 @@ export class CalendarComponent implements OnInit {
   public dateSelected: Date = {
     date: '',
     active: false,
-    activities: {videogame:5},
+    activities: {
+      videogame: 5,
+      gym: 0,
+      course: 0,
+      serie: 0,
+      anime: 0,
+      work: 0,
+      book: 0
+    },
     score: 0
   }
   // okr calendar
@@ -62,15 +69,27 @@ export class CalendarComponent implements OnInit {
 
     for (let index = 1; index <= daysInMonth; index++) {
       let score = Math.random() * 10
-      this.calendar.push({ date: `${year}-${month + 1}-${index}`, active: index < this.today ? false : true, score: score < 5 ? score + 5 : score, activities: {videogame:7.5} })
+      this.calendar.push({
+        date: `${year}-${month + 1}-${index}`, active: index <= this.today ? true : false, score: score < 5 ? score + 5 : score,
+        activities: {
+          videogame: 7.5,
+          gym: 5,
+          course: 8.5,
+          serie: 7.5,
+          anime: 7.5,
+          work: 10,
+          book: 5
+        }
+      })
     }
   }
   // ?listener all childrens
   public listener = (event: any) => {
     if (event.message == 'open') {
       this.dateSelected = event.data;
-      debugger
-      this.dateForm.get('videogame').setValue(this.dateSelected.activities?.videogame)
+      this.dateForm.setValue({
+        ...this.dateSelected.activities
+      })
       setTimeout(() => {
         (document.getElementById('dateDetailButton') as HTMLButtonElement).click()
       }, 0);
@@ -78,10 +97,22 @@ export class CalendarComponent implements OnInit {
     }
   }
   // ? save
-  public save=(index:number)=>{
-    debugger
-    this.calendar[index].activities.videogame=this.dateForm.value['videogame']
-    debugger
+  public save = (index: number) => {
+    this.calendar[index].activities = {...this.dateForm.value}
+    let keys=Object.keys(this.calendar[index].activities)
+    this.calendar[index].score=this.getAverageActivities(this.calendar[index],keys);
+    (document.getElementById('close-date-detail') as HTMLButtonElement).click()
+    // provitional
+    let x=this.calendar.slice()
+    this.calendar=[]
+    this.calendar=x
+    // this.calendar[index].score=keys.reduce((total:number,key:any)=> total+this.calendar[index].activities[key],0)
+  }
+  // ? get avarage from activities
+  public getAverageActivities=(data:any,keys:string[]):number=>{
+    let average=keys.reduce((total:number,key:string)=>total + data.activities[key],0)
+    return average / keys.length
+
   }
   // *******
   //  todo: life cycles

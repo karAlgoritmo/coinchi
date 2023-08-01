@@ -25,7 +25,19 @@
   <mat-tab-group class="w-100" color="accent">
     <!-- calendar -->
     <mat-tab label="Calendar">
-      <calendar-gadget [calendar]="calendar" [modules]="modules" [today]="today" (eventEmitter)="listener($event)"></calendar-gadget>
+      <div class="row mx-0 p-3 text-light">
+        <div class="col-8 row mx-0">
+          <calendar-gadget class="row" [calendar]="calendar"  [today]="today" (eventEmitter)="listener($event)"></calendar-gadget>
+        </div>
+        <div class="col-4">
+          <div class="row mx-0" >
+            <div class="col-md-6 p-1" *ngFor="let module of modules">
+              <schedule-gadget [module]="module"></schedule-gadget>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </mat-tab>
     <mat-tab label="Schedule">
       <div class="col-12">
@@ -54,20 +66,60 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="dateForm">
-          <!-- Video game -->
-          {{dateForm.value['videogame'] | json}}
-          <mat-form-field class="col-md-6 col-sm-12">
+          <!-- video game -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
             <mat-label>Video Game</mat-label>
-            <!-- formControlName="probabilidad" -->
             <mat-select formControlName="videogame">
+              <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- anime -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
+            <mat-label>Anime</mat-label>
+            <mat-select formControlName="anime">
+              <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- course -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
+            <mat-label>Course</mat-label>
+            <mat-select formControlName="course">
+              <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- work -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
+            <mat-label>Work</mat-label>
+            <mat-select formControlName="work">
+              <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- Gym -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
+            <mat-label>Gym</mat-label>
+            <mat-select formControlName="gym">
+              <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- book -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
+            <mat-label>Book</mat-label>
+            <mat-select formControlName="book">
+              <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- serie -->
+          <mat-form-field class="col-md-6 col-sm-12 p-2">
+            <mat-label>Serie</mat-label>
+            <mat-select formControlName="serie">
               <mat-option [value]="score.value" *ngFor="let score of scores">{{score.name}}</mat-option>
             </mat-select>
           </mat-form-field>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" mat-raised-button color="primary" (click)="save(dateSelected['index'] || -1)">Save</button>
-        <button type="button" mat-button data-bs-dismiss="modal">Close</button>
+        <button type="button" mat-raised-button color="primary" (click)="save(dateSelected['index'] ?? -1)">Save</button>
+        <button type="button" mat-button data-bs-dismiss="modal" id="close-date-detail">Close</button>
       </div>
     </div>
   </div>

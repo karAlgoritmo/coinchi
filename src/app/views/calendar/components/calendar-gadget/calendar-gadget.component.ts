@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter,Output} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter,Output,SimpleChanges} from '@angular/core';
 import { Date } from 'src/app/interfaces/date';
 import { Message } from 'src/app/interfaces/message';
 import { Okrmodule } from 'src/app/interfaces/okrmodule';
@@ -16,8 +16,6 @@ export class CalendarGadgetComponent implements OnInit {
 @Input() calendar:Date[]=[]
 // number today
 @Input() today:number=0
-// schedule module values
-@Input() modules:Okrmodule[]=[]
 // event emitter
 @Output() eventEmitter=new EventEmitter<Message>()
 // *******
@@ -32,6 +30,13 @@ public openModal=(dateSelected:Date,index:number)=>{
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['calendar']){
+      this.calendar=changes['calendar'].currentValue || []
+      debugger
+    }
   }
 
 }
