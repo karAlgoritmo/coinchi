@@ -1,0 +1,40 @@
+<div class="card w-100">
+  <div class="card-header d-flex justify-content-between">
+    <span>June - War Machines</span>
+    <button mat-button><mat-icon>menu</mat-icon></button>
+  </div>
+  <div class="card-body pb-0 px-0 bg-image" style="background-image: url(https://i.pinimg.com/originals/9a/af/a9/9aafa9c67a39717982a2936c3fcc60c0.jpg);">
+
+    <!--  -->
+    <div class="row mx-0" >
+      <div class="col-md-3 p-1" *ngFor="let module of modules">
+        <schedule-gadget [module]="module"></schedule-gadget>
+      </div>
+    </div>
+    <!--  -->
+    <div class="row">
+      <div class="col-4 d-flex align-items-end justify-content-start position-relative" >
+        <img [src]="okr[0].img_character_2" style="height: 30vh;" class="position-absolute">
+        <div class="card w-100" style="background-color: #ffffff8a;">
+          <div class="card-header">
+            Wishes
+          </div>
+          <div class="card-body">
+            <ul class="list-group " style="background-color: #ffffff8a;">
+              <li class="list-group-item bg-transparent">Juego de zelda</li>
+              <li class="list-group-item bg-transparent">Viaje a manzanillo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 d-flex align-items-end justify-content-center" >
+        <img [src]="okr[0].img_character_1" style="height: 30vh;">
+      </div>
+      <div class="col-4 d-flex align-items-end justify-content-end" >
+        <img [src]="okr[0].img_character_3" style="height: 30vh;">
+      </div>
+    </div>
+
+    <!-- table -->
+  </div>
+</div>

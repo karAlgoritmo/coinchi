@@ -5,6 +5,7 @@ import { Date } from 'src/app/interfaces/date';
 import { Okrmodule, categories, icons } from 'src/app/interfaces/okrmodule';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { reduce } from 'rxjs';
+import { Okr } from 'src/app/interfaces/okr';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -58,6 +59,54 @@ export class CalendarComponent implements OnInit {
   ]
   // scores categories
   public scores: Score[] = [{ name: ScoreName.bad, value: ScoresNum.bad }, { name: ScoreName.regular, value: ScoresNum.regular }, { name: ScoreName.good, value: ScoresNum.good }, { name: ScoreName.amazing, value: ScoresNum.amazing }]
+  // okr
+  public okr:Okr[] = [
+    {
+      title: 'Apocalipsys',
+      img_bg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8T_JyE-lR0wHedUXSJ5T5wybgxrIxT2EiI7i5amffZY6Arp9S2OnfTZ7PyRwOhoPcyZE&usqp=CAU',
+      img_character_1:'https://zelda.nintendo.com/links-awakening/assets/img/home/hero-char.png',
+      img_character_2:'https://i.pinimg.com/originals/e7/3a/cb/e73acb47471808b90737e0a03c80c1f8.png',
+      img_character_3:'https://media.fortniteapi.io/images/259bbb826124247449be37942a36e80c/transparent.png',
+      videogame:'God of war: Ragnarok 2',
+      book:'The Batman laughs',
+      events:['Chelsea grin concert'],
+      cinema: ['Ninja Turtles','Insidious 5'],
+      movies: ['El resplandor', 'Terrifier'],
+      courses: ['typescript','Typescript avanzado'],
+      animes:['primal'],
+      serie:['the last of us']
+    },
+    {
+      title: 'Futuro y pasado',
+      img_bg:'https://c4.wallpaperflare.com/wallpaper/165/612/862/aloy-horizon-forbidden-west-screen-shot-playstation-5-hd-wallpaper-preview.jpg',
+      img_character_1:'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ce33d7dc-eeb1-4900-be73-3c00611e37af/ddbpzx8-3a6e8ca9-a65a-4f0b-a117-432673d91b09.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NlMzNkN2RjLWVlYjEtNDkwMC1iZTczLTNjMDA2MTFlMzdhZlwvZGRicHp4OC0zYTZlOGNhOS1hNjVhLTRmMGItYTExNy00MzI2NzNkOTFiMDkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.31iyPZ3_wB0zskKI0boGbS5_vD_m_9jKXvFwjCzYBMU',
+      img_character_2:'https://i.pinimg.com/originals/e7/3a/cb/e73acb47471808b90737e0a03c80c1f8.png',
+      img_character_3:'https://qph.cf2.quoracdn.net/main-qimg-bb5b264724097c650f181077bc4d17d7',
+      videogame:'God of war: Ragnarok',
+      book:'The Batman laughs',
+      events:['Chelsea grin concert'],
+      cinema: ['Ninja Turtles','Insidious 5'],
+      movies: ['El resplandor', 'Terrifier'],
+      courses: ['typescript','Typescript avanzado'],
+      animes:['primal'],
+      serie:['the last of us']
+    },
+    {
+      title: 'Macabro',
+      img_bg:'https://cloudfront-us-east-1.images.arcpublishing.com/semana/Y6TKCOK6E5GU3FJFDR5UBEZMCA.jpg',
+      img_character_1:'https://preview.redd.it/i-personally-think-sony-and-hoyoverse-shouldve-gone-with-v0-hn5d7u5f93w91.png?width=640&crop=smart&auto=webp&s=c4e514599cd2d14b4f0b54b07f09a7657a7a98d1',
+      img_character_2:'https://i.pinimg.com/originals/e7/3a/cb/e73acb47471808b90737e0a03c80c1f8.png',
+      img_character_3:'https://qph.cf2.quoracdn.net/main-qimg-bb5b264724097c650f181077bc4d17d7',
+      videogame:'Zelda',
+      book:'Harry Potter y el misterio del principe',
+      events:['Boda de saul','Navidad'],
+      cinema: ['Saw X'],
+      movies: ['Terrifier'],
+      courses: ['nest js','Backend'],
+      animes:['Death Note'],
+      serie:['Supernatural']
+    }
+  ]
   // *******
   //  todo: functions
   // *******

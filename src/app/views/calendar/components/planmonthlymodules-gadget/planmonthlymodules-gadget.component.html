@@ -1,0 +1,48 @@
+<div class="card" matRipple>
+  <div class="card-body pb-0 p-2 bg-image d-flex justify-content-between"
+    style="background-image: url({{okr.img_bg}});">
+    <div>
+      <span class="fs-3 text-warning">{{okr.title}}</span>
+      <!-- table -->
+      <div class="p-2" >
+        <!-- <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Video Game</th>
+              <th scope="col">Anime</th>
+              <th scope="col">Courses</th>
+              <th scope="col">Serie</th>
+              <th scope="col">Book</th>
+              <th scope="col">Movies</th>
+              <th scope="col">Cinema</th>
+              <th scope="col">Events</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{}}</td>
+              <td>{{okr.animes}}</td>
+              <td>{{okr.courses}}</td>
+              <td>{{okr.serie}}</td>
+              <td>{{okr.book}}</td>
+              <td>{{okr.movies}}</td>
+              <td>{{okr.cinema}}</td>
+              <td>{{okr.events}}</td>
+            </tr>
+            <tr>
+          </tbody>
+        </table> -->
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">sports_esports</mat-icon>{{okr.videogame}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">local_fire_department</mat-icon>{{okr.animes}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">school</mat-icon>{{okr.courses}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">tv</mat-icon>{{okr.serie}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">menu_book</mat-icon>{{okr.book}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">movie</mat-icon>{{okr.movies}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">theater_comedy</mat-icon>{{okr.cinema}}</small>
+        <small class="badge m-1 text-bg-dark align-items-center " style="display: inline-flex;"><mat-icon class="pe-2" style="display: inline-table;">music_note</mat-icon>{{okr.events}}</small>
+      </div>
+
+    </div>
+    <img height="200" [src]="okr.img_character_1">
+  </div>
+</div>

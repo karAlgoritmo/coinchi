@@ -40,8 +40,18 @@
 
     </mat-tab>
     <mat-tab label="Schedule">
-      <div class="col-12">
-        <!-- <schedule></schedule> -->
+      <div class="row mx-0 p-1 text-light">
+
+        <div class="col-8 p-2">
+          <planmonthly-gadget [okr]="okr" [modules]="modules"></planmonthly-gadget>
+        </div>
+        <div class="col-4 p-2">
+          <div class="row mx-0" >
+            <div class="col-12 py-2" *ngFor="let month of okr;let i=index">
+              <planmonthlymodules-gadget [okr]="month" *ngIf="i>0"></planmonthlymodules-gadget>
+            </div>
+          </div>
+        </div>
       </div>
     </mat-tab>
     <mat-tab label="Analysis">

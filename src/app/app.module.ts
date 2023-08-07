@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRippleModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
+import { PlanmonthlyGadgetComponent } from './views/calendar/components/planmonthly-gadget/planmonthly-gadget.component';
+import { PlanmonthlymodulesGadgetComponent } from './views/calendar/components/planmonthlymodules-gadget/planmonthlymodules-gadget.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import {MatButtonModule} from '@angular/material/button';
     NavbarHeaderComponent,
     CashFlowComponent,
     ScheduleGadgetComponent,
-    CalendarGadgetComponent
+    CalendarGadgetComponent,
+    PlanmonthlyGadgetComponent,
+    PlanmonthlymodulesGadgetComponent
   ],
   imports: [
     BrowserModule,

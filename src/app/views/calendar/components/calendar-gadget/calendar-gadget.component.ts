@@ -35,7 +35,6 @@ public openModal=(dateSelected:Date,index:number)=>{
   ngOnChanges(changes: SimpleChanges) {
     if(changes['calendar']){
       this.calendar=changes['calendar'].currentValue || []
-      debugger
     }
   }
 
